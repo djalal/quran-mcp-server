@@ -1,0 +1,38 @@
+# Version control
+.git
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile
+compose.yaml
+
+# Node.js
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build artifacts
+dist
+build
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.*
+
+# IDE and editor files
+.idea
+.vscode
+*.swp
+*.swo
+
+# Test files
+coverage
+.nyc_output
+tests
+
+# Misc
+.DS_Store
+*.log
