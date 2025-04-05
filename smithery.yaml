@@ -1,0 +1,22 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: API key for authentication (optional)
+      verboseMode:
+        type: boolean
+        default: false
+        description: Enable verbose logging
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'node', args: ['dist/server.js'], env: { API_KEY: config.apiKey || '', VERBOSE_MODE: config.verboseMode ? 'true' : 'false' } })
+  exampleConfig:
+    apiKey: your_api_key
+    verboseMode: true
