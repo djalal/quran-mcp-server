@@ -1,4 +1,5 @@
 # MCP Server for Quran.com API
+[![smithery badge](https://smithery.ai/badge/@djalal/quran-mcp-server)](https://smithery.ai/server/@djalal/quran-mcp-server)
 
 MCP server to interact with Quran.com corpus via the official [REST API v4](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/content-apis).
 
@@ -47,6 +48,14 @@ The following endpoints from the API have been made available as tools, that LLM
 * GET /resources/languages - Get all languages
 
 ## Setup
+
+### Installing via Smithery
+
+To install Quran.com API Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@djalal/quran-mcp-server):
+
+```bash
+npx -y @smithery/cli install @djalal/quran-mcp-server --client claude
+```
 
 ### Requirements
 
