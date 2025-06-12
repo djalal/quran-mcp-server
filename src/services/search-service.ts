@@ -5,7 +5,7 @@
 import { z } from 'zod';
 import { ApiError } from '../types/error';
 import { verboseLog } from '../utils/logger';
-import { makeApiRequest } from './base-service';
+import { makeRequest } from './base-service';
 import { API_BASE_URL } from '../config';
 import { searchSchema } from '../schemas/search';
 import { SearchResponse } from '../types/api-responses';
@@ -29,7 +29,7 @@ export class SearchService {
       const url = `${API_BASE_URL}/search`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         q: validatedParams.q,
         size: validatedParams.size,
         page: validatedParams.page,

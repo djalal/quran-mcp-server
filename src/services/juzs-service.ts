@@ -5,7 +5,7 @@
 import { z } from 'zod';
 import { ApiError } from '../types/error';
 import { verboseLog } from '../utils/logger';
-import { makeApiRequest } from './base-service';
+import { makeRequest } from './base-service';
 import { API_BASE_URL } from '../config';
 import { juzsSchema } from '../schemas/juzs';
 import { JuzsResponse } from '../types/api-responses';
@@ -30,7 +30,7 @@ export class JuzsService {
       const url = `${API_BASE_URL}/juzs`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {});
+      const data = await makeRequest("GET", url, {});
       
       return {
         success: true,

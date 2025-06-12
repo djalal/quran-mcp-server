@@ -5,7 +5,7 @@
 import { z } from 'zod';
 import { ApiError } from '../types/error';
 import { verboseLog } from '../utils/logger';
-import { makeApiRequest } from './base-service';
+import { makeRequest } from './base-service';
 import { API_BASE_URL, CACHE_DURATION_MS } from '../config';
 import { 
   tafsirSchema, 
@@ -59,7 +59,7 @@ export class TafsirsService {
       try {
         // Make request to Quran.com API
         const url = `${API_BASE_URL}/resources/tafsirs`;
-        const response = await makeApiRequest(url, {
+        const response = await makeRequest("GET", url, {
           language: validatedParams.language
         });
         
@@ -143,7 +143,7 @@ export class TafsirsService {
       const url = `${API_BASE_URL}/resources/tafsirs/${validatedParams.tafsir_id}/info`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url);
+      const data = await makeRequest("GET", url);
       
       return {
         success: true,
@@ -197,7 +197,7 @@ export class TafsirsService {
       if (validatedParams.verse_key) queryParams.verse_key = validatedParams.verse_key;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, queryParams);
+      const data = await makeRequest("GET", url, queryParams);
       
       return {
         success: true,

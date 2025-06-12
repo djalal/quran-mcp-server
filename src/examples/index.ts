@@ -363,4 +363,26 @@ export const toolExamples = {
       }
     }
   ]
+  ,
+  'add-user-bookmark': [
+    {
+      description: 'Bookmark verse 1:1',
+      parameters: { verse_key: '1:1' },
+      result: { success: true, message: 'add-bookmark executed successfully', data: { id: 1 } }
+    }
+  ],
+  'list-user-bookmarks': [
+    {
+      description: 'List bookmarks',
+      parameters: {},
+      result: { success: true, message: 'list-bookmarks executed successfully', data: { bookmarks: [] } }
+    }
+  ],
+  'delete-user-bookmark': [
+    {
+      description: 'Delete bookmark',
+      parameters: { id: 1 },
+      result: { success: true, message: 'delete-bookmark executed successfully', data: {} }
+    }
+  ]
 };

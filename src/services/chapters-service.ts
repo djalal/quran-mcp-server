@@ -5,7 +5,7 @@
 import { z } from 'zod';
 import { ApiError } from '../types/error';
 import { verboseLog } from '../utils/logger';
-import { makeApiRequest } from './base-service';
+import { makeRequest } from './base-service';
 import { API_BASE_URL, CACHE_DURATION_MS } from '../config';
 import { 
   listChaptersSchema, 
@@ -63,7 +63,7 @@ export class ChaptersService {
       try {
         // Make request to Quran.com API
         const url = `${API_BASE_URL}/chapters`;
-        const response = await makeApiRequest(url, {
+        const response = await makeRequest("GET", url, {
           language: validatedParams.language
         });
         
@@ -163,7 +163,7 @@ export class ChaptersService {
       const url = `${API_BASE_URL}/chapters/${chapterId}`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         language: validatedParams.language
       });
       
@@ -208,7 +208,7 @@ export class ChaptersService {
       const url = `${API_BASE_URL}/chapters/${chapterId}/info`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         language: validatedParams.language
       });
       

@@ -11,6 +11,7 @@ import juzsSchemas from './juzs';
 import languagesSchemas from './languages';
 import quranTextSchemas from './quran-text';
 import searchSchemas from './search';
+import bookmarksSchemas from './bookmarks';
 
 // Export all schemas
 export {
@@ -23,6 +24,7 @@ export {
   languagesSchemas,
   quranTextSchemas,
   searchSchemas,
+  bookmarksSchemas,
 };
 
 // Export individual schemas for direct imports
@@ -35,3 +37,4 @@ export * from './juzs';
 export * from './languages';
 export * from './quran-text';
 export * from './search';
+export * from './bookmarks';

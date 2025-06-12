@@ -46,6 +46,12 @@ The following endpoints from the API have been made available as tools, that LLM
 ### Languages
 * GET /resources/languages - Get all languages
 
+### Bookmarks
+* GET /user/bookmarks - List user bookmarks
+* POST /user/bookmarks - Add bookmark
+* DELETE /user/bookmarks/{id} - Delete bookmark
+Authentication headers `x-auth-token` and `x-client-id` must be supplied via the corresponding environment variables.
+
 ## Setup
 
 ### Requirements
@@ -129,8 +135,12 @@ To use this MCP server with Claude Desktop, add the following configuration to y
 ## Environment Variables
 
 * `API_KEY`: API key for authentication
+* `AUTH_TOKEN`: OAuth token for user endpoints (required for bookmark tools)
+* `CLIENT_ID`: OAuth client ID associated with the token
 * `PORT`: Server port (default: 8000 or 3000 depending on language)
 * `VERBOSE_MODE`: Set to 'true' to enable verbose logging of API requests and responses (default: false)
+
+`AUTH_TOKEN` and `CLIENT_ID` must be provided to use the bookmark-related tools.
 
 ## Verbose Mode
 

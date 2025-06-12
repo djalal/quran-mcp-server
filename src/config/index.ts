@@ -5,6 +5,8 @@
 // Environment variables
 export const VERBOSE_MODE = process.env.VERBOSE_MODE === 'true';
 export const API_KEY = process.env.API_KEY || '';
+export const AUTH_TOKEN = process.env.AUTH_TOKEN || '';
+export const CLIENT_ID = process.env.CLIENT_ID || '';
 
 // API configuration
 export const API_BASE_URL = 'https://api.quran.com/api/v4';

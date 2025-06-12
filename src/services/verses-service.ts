@@ -5,7 +5,7 @@
 import { z } from 'zod';
 import { ApiError } from '../types/error';
 import { verboseLog } from '../utils/logger';
-import { makeApiRequest } from './base-service';
+import { makeRequest } from './base-service';
 import { API_BASE_URL } from '../config';
 import {
   versesByChapterNumberSchema,
@@ -46,7 +46,7 @@ export class VersesService {
       const url = `${API_BASE_URL}/verses/by_chapter/${validatedParams.chapter_number}`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         language: validatedParams.language,
         words: validatedParams.words,
         translations: validatedParams.translations,
@@ -95,7 +95,7 @@ export class VersesService {
       const url = `${API_BASE_URL}/verses/by_page/${validatedParams.page_number}`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         language: validatedParams.language,
         words: validatedParams.words,
         translations: validatedParams.translations,
@@ -144,7 +144,7 @@ export class VersesService {
       const url = `${API_BASE_URL}/verses/by_juz/${validatedParams.juz_number}`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         language: validatedParams.language,
         words: validatedParams.words,
         translations: validatedParams.translations,
@@ -193,7 +193,7 @@ export class VersesService {
       const url = `${API_BASE_URL}/verses/by_hizb/${validatedParams.hizb_number}`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         language: validatedParams.language,
         words: validatedParams.words,
         translations: validatedParams.translations,
@@ -242,7 +242,7 @@ export class VersesService {
       const url = `${API_BASE_URL}/verses/by_rub/${validatedParams.rub_el_hizb_number}`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         language: validatedParams.language,
         words: validatedParams.words,
         translations: validatedParams.translations,
@@ -289,7 +289,7 @@ export class VersesService {
       const url = `${API_BASE_URL}/verses/by_key/${validatedParams.verse_key}`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         language: validatedParams.language,
         words: validatedParams.words,
         translations: validatedParams.translations,
@@ -336,7 +336,7 @@ export class VersesService {
       const url = `${API_BASE_URL}/verses/random`;
       
       // Make request to Quran.com API
-      const data = await makeApiRequest(url, {
+      const data = await makeRequest("GET", url, {
         language: validatedParams.language,
         words: validatedParams.words,
         translations: validatedParams.translations,

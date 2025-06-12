@@ -35,6 +35,7 @@ const {
   tafsirsSchemas,
   audioSchemas,
   languagesSchemas,
+  bookmarksSchemas,
 } = require('./schemas');
 
 // Import handlers
@@ -59,6 +60,9 @@ const {
   handleChapterReciters,
   handleRecitationStyles,
   handleLanguages,
+  handleAddBookmark,
+  handleGetBookmarks,
+  handleDeleteBookmark,
 } = require('./handlers');
 
 // Import utilities
@@ -234,6 +238,22 @@ server.setRequestHandler(ListToolsRequestSchema, async (request: any) => ({
       inputSchema: zodToJsonSchema(languagesSchemas.languages),
       examples: toolExamples['languages'],
     },
+    // Bookmark-related tools
+    {
+      name: ApiTools.add_user_bookmark,
+      description: "Add a bookmark",
+      inputSchema: zodToJsonSchema(bookmarksSchemas.addBookmark),
+    },
+    {
+      name: ApiTools.list_user_bookmarks,
+      description: "List user bookmarks",
+      inputSchema: zodToJsonSchema(bookmarksSchemas.listBookmarks),
+    },
+    {
+      name: ApiTools.delete_user_bookmark,
+      description: "Delete a bookmark",
+      inputSchema: zodToJsonSchema(bookmarksSchemas.deleteBookmark),
+    },
   ],
 }));
 
@@ -304,11 +324,19 @@ server.setRequestHandler(CallToolRequestSchema, async (request: any) => {
         return await handleChapterReciters(request.params.arguments);
       case ApiTools.recitation_styles:
         return await handleRecitationStyles(request.params.arguments);
-      
+
       // Language-related tools
       case ApiTools.languages:
         return await handleLanguages(request.params.arguments);
-      
+
+      // Bookmark-related tools
+      case ApiTools.add_user_bookmark:
+        return await handleAddBookmark(request.params.arguments);
+      case ApiTools.list_user_bookmarks:
+        return await handleGetBookmarks(request.params.arguments);
+      case ApiTools.delete_user_bookmark:
+        return await handleDeleteBookmark(request.params.arguments);
+
       default:
         throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${request.params.name}`);
     }

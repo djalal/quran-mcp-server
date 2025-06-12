@@ -90,3 +90,10 @@ export interface QuranVersesCodeV2Response extends BaseApiResponse {}
  * Search-related response interfaces
  */
 export interface SearchResponse extends BaseApiResponse {}
+
+/**
+ * Bookmark-related response interfaces
+ */
+export interface AddBookmarkResponse extends BaseApiResponse {}
+export interface GetBookmarksResponse extends BaseApiResponse {}
+export interface DeleteBookmarkResponse extends BaseApiResponse {}

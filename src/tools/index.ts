@@ -47,6 +47,9 @@ export const ApiTools = {
   QURAN_verses_code_v1: "QURAN-verses-code_v1",
   QURAN_verses_code_v2: "QURAN-verses-code_v2",
   search: "search",
+  add_user_bookmark: "add-user-bookmark",
+  list_user_bookmarks: "list-user-bookmarks",
+  delete_user_bookmark: "delete-user-bookmark",
 } as const;
 
 // Create a type from the object values
@@ -111,6 +114,11 @@ export const ToolCategories = {
     ApiTools.QURAN_verses_Imlaei,
     ApiTools.QURAN_verses_code_v1,
     ApiTools.QURAN_verses_code_v2,
+  ],
+  bookmarks: [
+    ApiTools.add_user_bookmark,
+    ApiTools.list_user_bookmarks,
+    ApiTools.delete_user_bookmark,
   ],
   search: [
     ApiTools.search,

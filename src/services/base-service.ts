@@ -5,7 +5,7 @@
 import axios from 'axios';
 import { ApiError } from '../types/error';
 import { verboseLog } from '../utils/logger';
-import { API_KEY, REQUEST_TIMEOUT_MS } from '../config';
+import { API_KEY, REQUEST_TIMEOUT_MS, AUTH_TOKEN, CLIENT_ID } from '../config';
 
 // Maximum number of retries for API requests
 const MAX_RETRIES = 3;
@@ -20,21 +20,33 @@ const INITIAL_RETRY_DELAY_MS = 1000;
  * @returns The API response data
  * @throws ApiError if the request fails after all retries
  */
-export async function makeApiRequest(
-  url: string, 
-  params: any = {}, 
+export async function makeRequest(
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH',
+  url: string,
+  params: any = {},
+  data: any = {},
   retryCount: number = 0
 ): Promise<any> {
   try {
-    verboseLog('request', { 
-      url, 
+    verboseLog('request', {
+      method,
+      url,
       params,
+      data,
       retry: retryCount > 0 ? `Retry attempt ${retryCount} of ${MAX_RETRIES}` : undefined
     });
-    
-    const response = await axios.get(url, {
+
+    const headers: Record<string, string> = {};
+    if (API_KEY) headers['x-api-key'] = API_KEY;
+    if (AUTH_TOKEN) headers['x-auth-token'] = AUTH_TOKEN;
+    if (CLIENT_ID) headers['x-client-id'] = CLIENT_ID;
+
+    const response = await axios.request({
+      method,
+      url,
       params,
-      headers: API_KEY ? { 'x-api-key': API_KEY } : undefined,
+      data,
+      headers,
       timeout: REQUEST_TIMEOUT_MS
     });
     
@@ -71,7 +83,7 @@ export async function makeApiRequest(
       await new Promise(resolve => setTimeout(resolve, delay));
       
       // Retry the request with incremented retry count
-      return makeApiRequest(url, params, retryCount + 1);
+      return makeRequest(method, url, params, data, retryCount + 1);
     }
     
     if (axios.isAxiosError(error)) {
@@ -108,4 +120,15 @@ export async function makeApiRequest(
     
     throw error;
   }
+}
+
+/**
+ * Backwards compatible helper for GET requests
+ */
+export async function makeApiRequest(
+  url: string,
+  params: any = {},
+  retryCount: number = 0
+): Promise<any> {
+  return makeRequest('GET', url, params, {}, retryCount);
 }

@@ -11,6 +11,7 @@ export { translationsService } from './translations-service';
 export { tafsirsService } from './tafsirs-service';
 export { audioService } from './audio-service';
 export { languagesService } from './languages-service';
+export { bookmarksService } from './bookmarks-service';
 
 // Export service classes for direct imports if needed
 export { ChaptersService } from './chapters-service';
@@ -21,6 +22,7 @@ export { TranslationsService } from './translations-service';
 export { TafsirsService } from './tafsirs-service';
 export { AudioService } from './audio-service';
 export { LanguagesService } from './languages-service';
+export { BookmarksService } from './bookmarks-service';
 
 // Export base service utilities
-export { makeApiRequest } from './base-service';
+export { makeRequest } from './base-service';

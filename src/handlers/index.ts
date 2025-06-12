@@ -33,3 +33,10 @@ export {
   handleRecitationStyles,
   handleLanguages
 } from './resources';
+
+// Bookmark-related handlers
+export {
+  handleAddBookmark,
+  handleGetBookmarks,
+  handleDeleteBookmark,
+} from './bookmarks';
