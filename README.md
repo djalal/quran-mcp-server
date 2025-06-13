@@ -2,6 +2,10 @@
 
 MCP server to interact with Quran.com corpus via the official [REST API v4](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/content-apis).
 
+<a href="https://glama.ai/mcp/servers/@djalal/quran-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@djalal/quran-mcp-server/badge" alt="quran-mcp-server MCP server" />
+</a>
+
 ## Overview
 
 This is a Model Context Protocol (MCP) server generated from the [OpenAPI specification](v4.json).
