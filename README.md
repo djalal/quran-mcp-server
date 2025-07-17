@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/djalal-quran-mcp-server-badge.png)](https://mseep.ai/app/djalal-quran-mcp-server)
+
 # MCP Server for Quran.com API
 
 MCP server to interact with Quran.com corpus via the official [REST API v4](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/content-apis).
