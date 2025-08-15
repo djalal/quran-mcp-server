@@ -1,4 +1,5 @@
 # MCP Server for Quran.com API
+[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/djalal/quran-mcp-server)](https://archestra.ai/mcp-catalog/djalal__quran-mcp-server)
 
 MCP server to interact with Quran.com corpus via the official [REST API v4](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/content-apis).
 
