@@ -2,6 +2,10 @@
 
 MCP server to interact with Quran.com corpus via the official [REST API v4](https://api-docs.quran.com/docs/content_apis_versioned/4.0.0/content-apis).
 
+## Hosted deployment
+
+A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/djalal-quran-mcp-server).
+
 ## Overview
 
 This is a Model Context Protocol (MCP) server generated from the [OpenAPI specification](v4.json).
